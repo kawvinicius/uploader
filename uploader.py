@@ -18,47 +18,77 @@ drive = GoogleDrive(gauth)
 
 
 def SendFilesToDrive(folder):
-
     print(folder)
-    destinos = {"op07": "15eNEqP3wxFgPLGWaz3Sx_fZnCieGxMkX", "op06":"1zw3WNkmxnUSFJyOqp3k_jrAKXLbU4XgW", "op05":"11Pljj-hGrZSnzY9eyCm-dzi4veIE6INg", "opab01": "1nxkAAF8Woy_L2GWZ6M1047K_B7gALYs8", "escr":"1zQTsIhILte1xXSd-nzsuqnzZLpuAq3f0", "clod":"1Phg2rwsjyvni8PCPeIRKaIbk1rLWcXCS", "na": "174Fbft_BNsS9q3eTQUIaVcToZvKdzbVF", "almox":"1FFsF2P0mo4qZErTE-hBRvip_dBeh3PK-", "op04":"1C14kV0wAxFGxX56R07Z3_yVv4XYASra6", "bn":"1DwgBFFsmbcQV7C7xqd3urio64gVJEcxG", "pg":"1IsKpuD1nZW5cYEmR894u_p4nkXf_Nrsf", "cabedelo":"1iBTxNZFoKmWec1LXm4-6Ni47VoJrlI32", "aqbet": "18FX1VrCnT_yrXYSQjS5eKaCBQpDhx3E0", "aqth": "14ygca4DJwJwhP8L4FoUceTOeRbTtnW7Y", "c&s": "1sm_o_hEwcHf3rYfs9aLbv4Hyqc9TQfzn"}
+    destinos = {"op07": "15eNEqP3wxFgPLGWaz3Sx_fZnCieGxMkX", "op06":"1zw3WNkmxnUSFJyOqp3k_jrAKXLbU4XgW", "op05":"11Pljj-hGrZSnzY9eyCm-dzi4veIE6INg", "opab01": "1nxkAAF8Woy_L2GWZ6M1047K_B7gALYs8", "escr":"1zQTsIhILte1xXSd-nzsuqnzZLpuAq3f0", "clod":"1Phg2rwsjyvni8PCPeIRKaIbk1rLWcXCS", "na": "174Fbft_BNsS9q3eTQUIaVcToZvKdzbVF", "almox":"1FFsF2P0mo4qZErTE-hBRvip_dBeh3PK-", "op04":"1C14kV0wAxFGxX56R07Z3_yVv4XYASra6", "bn":"1DwgBFFsmbcQV7C7xqd3urio64gVJEcxG", "pg":"1IsKpuD1nZW5cYEmR894u_p4nkXf_Nrsf", "cabedelo":"1iBTxNZFoKmWec1LXm4-6Ni47VoJrlI32", "aqbet": "18FX1VrCnT_yrXYSQjS5eKaCBQpDhx3E0", "aqth": "14ygca4DJwJwhP8L4FoUceTOeRbTtnW7Y", "c&s": "1sm_o_hEwcHf3rYfs9aLbv4Hyqc9TQfzn", "manutencao":"1FRzYkBYzMoI1uIfAmo63hkcixD-x8jw3"}
     meses = {"01": "01 - JANEIRO DE 2022","02":"02 - FEVEREIRO DE 2022","03": "03 - MARÇO DE 2022","04": "04 - ABRIL DE 2022","05":"05 - MAIO DE 2022","06": "06 - JUNHO DE 2022", "07": "07 - JULHO DE 2022", "08": "08 - AGOSTO DE 2022", "09": "09 - SETEMBRO DE 2022", "10": "10 - OUTUBRO DE 2022", "11":"11- NOVEMBRO DE 2022", "12":"12 - DEZEMBRO DE 2022"}
     meses2 = {"01": "01 - JANEIRO DE 2021","02":"02 - FEVEREIRO DE 2021","03": "03 - MARÇO DE 2021","04": "04 - ABRIL DE 2021","05":"05 - MAIO DE 2021","06": "06 - JUNHO DE 2021", "07": "07 - JULHO DE 2021", "08": "08 - AGOSTO DE 2021", "09": "09 - SETEMBRO DE 2021", "10": "10 - OUTUBRO DE 2021", "11":"11- NOVEMBRO DE 2021", "12":"12 - DEZEMBRO DE 2021"}
     meses3 = {"01": "01 - JANEIRO DE 2019","02":"02 - FEVEREIRO DE 2019","03": "03 - MARÇO DE 2019","04": "04 - ABRIL DE 2019","05":"05 - MAIO DE 2019","06": "06 - JUNHO DE 2019", "07": "07 - JULHO DE 2019", "08": "08 - AGOSTO DE 2019", "09": "09 - SETEMBRO DE 2019", "10": "10 - OUTUBRO DE 2019", "11":"11- NOVEMBRO DE 2019", "12":"12 - DEZEMBRO DE 2019"}
-
+    custosOp07 = []
+    custosOp06 = []
+    custosOp05 = []
+    custosOpab01 = []
+    custosEscr = []
+    custosClod = []
+    custosNa = []
+    custosAlmox = []
+    custosOp04 = []
+    custosBn = []
+    custosPg = []
+    custosCabedelo = []
+    custosAqbet = []
+    custosAqth = []
+    custosCeS = []
     counter = 0
     for arquivo in os.listdir(folder):
         
         #altera o fluxo de execução do programa se o arquivo deve ir para OP07, OP06, etc.
         if "OP07" in arquivo:
             destino = destinos['op07']
+            custosOp07.append(arquivo)
         elif 'OP06' in arquivo:
             destino = destinos['op06']
+            custosOp06.append(arquivo)
         if 'OP05' in arquivo:
             destino = destinos['op05']
+            custosOp05.append(arquivo)
         elif 'OPAB01' in arquivo:
             destino = destinos['opab01']
+            custosOpab01.append(arquivo)
         elif 'ESCR' in arquivo:
             destino = destinos['escr']
+            custosEscr.append(arquivo)
         elif "CLOD" in arquivo:
             destino = destinos['clod']
+            custosClod.append(arquivo)
         elif "- NA -" in arquivo:
             destino = destinos['na']
+            custosNa.append(arquivo)
         elif "ALMOX" in arquivo:
             destino = destinos['almox']
+            custosAlmox.append(arquivo)
         elif "OP04" in arquivo:
             destino = destinos['op04']
+            custosOp04.append(arquivo)
         elif "- BN -" in arquivo:
             destino = destinos['bn']
+            custosBn.append(arquivo)
         elif "- PG -" in arquivo:
             destino = destinos['pg']
+            custosPg.append(arquivo)
         elif "CABEDELO" in arquivo:
             destino = destinos['cabedelo']
+            custosCabedelo.append(arquivo)
         elif "AQBET" in arquivo: 
             destino = destinos["aqbet"]
+            custosAqbet.append(arquivo)
         elif "AQTH" in arquivo: 
             destino = destinos["aqth"]
+            custosAqth.append(arquivo)
         elif "C&S" in arquivo: 
             destino = destinos["c&s"]
+            custosCeS.append(arquivo)
+        elif "MNTC" in arquivo:
+            destino = destinos["manutencao"] 
 
         #fatia o nome do arquivo em dia, mes e ano pra ficar melhor de tratar esses valores
         day = arquivo.strip()[0:2]
@@ -145,6 +175,42 @@ def SendFilesToDrive(folder):
         print(f'quantidade: {counter}')
         print('='*15)
         # os.remove(folder + arquivo)
+    
+    print("RELATÓRIO DE ARQUIVAMENTO")
+    print("OP07")
+    for i in custosOp07:
+        print(i)
+    print(f"{len(custosOp07)} boletos e comprovantes adicionados ao drive.")
+
+    print("OPAB01")
+    for i in custosOpab01:
+        print(i)
+    print(f"{len(custosOpab01)} boletos e comprovantes adicionados ao drive.")
+
+    print("BN")
+    for i in custosBn:
+        print(i)
+    print(f"{len(custosBn)} boletos e comprovantes adicionados ao drive.")
+
+    print("OP06")
+    for i in custosOp06:
+        print(i)
+    print(f"{len(custosOp06)} boletos e comprovantes adicionados ao drive.")
+
+    print("OP05")
+    for i in custosOp05:
+        print(i)
+    print(f"{len(custosOp05)} boletos e comprovantes adicionados ao drive.")
+
+    print("ESCR")
+    for i in custosEscr:
+        print(i)
+    print(f"{len(custosEscr)} boletos e comprovantes adicionados ao drive.")
+
+    print("ALMOX")
+    for i in custosAlmox:
+        print(i)
+    print(f"{len(custosAlmox)} boletos e comprovantes adicionados ao drive.")
         
 
 
