@@ -12,7 +12,7 @@ O primeiro passo é instalar o pydrive através do pip. (Para isso, o python já
   pip install pydrive
 ```
     
-Em seguinda, é necessário buscar o json de validação do projeto e habilitar a API do Google Drive para ser acessada externamente pelo script (Tutorial disponível abaixo)
+Em seguida, é necessário buscar o json de validação do projeto e habilitar a API do Google Drive para ser acessada externamente pelo script (Tutorial disponível abaixo)
 
 ## Running Tests
 
